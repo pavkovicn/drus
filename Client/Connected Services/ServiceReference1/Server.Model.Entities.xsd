@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Server.Model.Entities" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Server.Model.Entities" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="Measurer">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="Location" nillable="true" type="tns:Location" />
+      <xs:element minOccurs="0" name="LocationId" type="ser:guid" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Measurer" nillable="true" type="tns:Measurer" />
+  <xs:complexType name="Location">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Location" nillable="true" type="tns:Location" />
+  <xs:complexType name="Measurement">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Humidity" type="xs:int" />
+      <xs:element minOccurs="0" name="Measurer" nillable="true" type="tns:Measurer" />
+      <xs:element minOccurs="0" name="MeasurerId" type="ser:guid" />
+      <xs:element minOccurs="0" name="Temperature" type="xs:int" />
+      <xs:element minOccurs="0" name="Time" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Measurement" nillable="true" type="tns:Measurement" />
+  <xs:complexType name="ArrayOfLocation">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Location" nillable="true" type="tns:Location" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLocation" nillable="true" type="tns:ArrayOfLocation" />
+  <xs:complexType name="ArrayOfMeasurer">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Measurer" nillable="true" type="tns:Measurer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMeasurer" nillable="true" type="tns:ArrayOfMeasurer" />
+  <xs:complexType name="ArrayOfMeasurement">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Measurement" nillable="true" type="tns:Measurement" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMeasurement" nillable="true" type="tns:ArrayOfMeasurement" />
+</xs:schema>

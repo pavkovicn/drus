@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://Microsoft.ServiceModel.Samples" elementFormDefault="qualified" targetNamespace="http://Microsoft.ServiceModel.Samples" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Server.Model.Entities" />
+  <xs:complexType name="Measurer">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Server.Model.Entities" minOccurs="0" name="Location" nillable="true" type="q1:Location" />
+      <xs:element minOccurs="0" name="LocationId" type="ser:guid" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Measurer" nillable="true" type="tns:Measurer" />
+  <xs:complexType name="ArrayOfMeasurer">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Measurer" nillable="true" type="tns:Measurer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMeasurer" nillable="true" type="tns:ArrayOfMeasurer" />
+</xs:schema>
